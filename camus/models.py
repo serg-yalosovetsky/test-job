@@ -8,6 +8,15 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from camus import db
 
 
+class Orders(db.Model):
+    __tablename__ = 'orders'
+    id = db.Column(db.Integer, primary_key=True)
+    price = db.Column(db.Integer)
+    time = db.Column(db.String(50))
+    desc = db.Column(db.String(250))
+    curr = db.Column(db.String(3))
+    
+    
 class Room(db.Model):
     __tablename__ = 'rooms'
     id = db.Column(db.Integer, primary_key=True)

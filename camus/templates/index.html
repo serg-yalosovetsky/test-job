@@ -1,0 +1,64 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+
+    <div class="container">
+        <main>
+        <div class="py-5 text-center">
+            <!-- <img class="d-block mx-auto mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+            <h2>Checkout form</h2>
+            <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+        </div>
+    
+        <div class="row g-9">
+        
+            <div class="col-md-7 col-lg-8">
+            <h4 class="mb-3">Billing address</h4>
+            <form class="needs-validation" novalidate="False" method="POST" action="submit">
+                <div class="row g-3">
+                
+    
+                <div class="col-12">
+                    <label for="price" class="form-label">price 2 <span class="text-muted">(Optional)</span></label>
+                    <input type="text" class="form-control" id="price" placeholder="Apartment or suite">
+                    <div class="invalid-feedback">
+                    Expiration date required
+                    </div>
+                </div>
+    
+                <div class="col-md-5">
+                    <label for="currency" class="form-label">currency</label>
+                    <select class="form-select" id="currency" required="">
+                    <option value="">Choose...</option>
+                    <option>eur</option>
+                    <option>usd</option>
+                    <option>rub</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Please select a valid country.
+                    </div>
+                </div>
+    
+                <div class="col-12">
+                    <label for="describe" class="form-label">describe 2 <span class="text-muted">(Optional)</span></label>
+                    <input type="text" class="form-control" id="describe" placeholder="Apartment or suite">
+                    <div class="invalid-feedback">
+                        Expiration date required
+                    </div>
+                </div>
+            
+    
+                <hr class="my-4">
+    
+                <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+                {% if message %}
+                    <div class="invalid-feedback">
+                        <p>{{ message }}</p>
+                    </div>
+                {% endif %}
+            </form>
+            </div>
+        </div>
+    </main>
+
+{% endblock %}

@@ -20,6 +20,6 @@ print(ip)
 
 config = Config()
 # config.from_mapping(bind='http://0.0.0.0:5000')
-config.bind = [f'{ip}:80'] 
+config.bind = [f'{ip}:8000'] 
 # config.from_toml('config.toml')
 asyncio.run(serve(app_, config))

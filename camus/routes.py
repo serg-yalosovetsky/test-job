@@ -7,8 +7,9 @@ from quart import (Blueprint, copy_current_websocket_context, flash, redirect,
                    render_template, session, websocket, request, jsonify)
 
 from camus import db, message_handler
-from camus.forms import CreateRoomForm, JoinRoomForm
-from camus.models import Client, Room
+from camus.forms import OrderForm
+from camus.models import Orders
+from camus.logic import redirecter
 from camus.util import commit_database
 
 bp = Blueprint('main', __name__)
@@ -21,28 +22,30 @@ async def about():
 
 @bp.route('/', methods=['GET', 'POST'])
 async def index():
-    create_room_form = CreateRoomForm()
-    if create_room_form.validate_on_submit():
-        form = create_room_form
-        name = form.room_name.data
-        password = form.password.data
-        is_public = form.public.data
-        guest_limit = form.guest_limit.data
+    price_form = OrderForm()
+    if price_form.validate_on_submit():
+        form = price_form
+        price = form.price.data
+        currency = form.currency.data
+        description = form.description.data
+        # with open(r"C:\Users\logs", 'a') as f:
+            # f.write(f' {price} {currency} {description} ')
 
         try:
-            room = Room(guest_limit=guest_limit, is_public=is_public)
-            room.set_name(name)
-            if password:
-                room.set_password(password)
-            db.session.add(room)
+            order = Orders(price=price, currency=currency, description=description)
+            db.session.add(order)
             commit_database(reraise=True)
-
-            return redirect('/room/{}'.format(room.slug), code=307)
+            request_params = redirecter({'price':price, 
+                                        'currency':currency, 'description':description})
+        
+            return await render_template('order_redirect.html',
+                   request_params=request_params, code=307)
+            
         except sqlalchemy.exc.IntegrityError:
-            await flash('The room name "{}" is not available'.format(name))
+            await flash('The room name "{}" is not available')
 
     return await render_template(
-        'chat.html', create_room_form=create_room_form)
+        'index.html', price_form=price_form)
 
 
 @bp.route('/create_room', methods=['POST'])

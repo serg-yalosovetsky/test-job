@@ -1,4 +1,4 @@
-{% extends "main/base.html" %}
+{% extends "base.html" %}
 
 {% block content %}
 
@@ -14,34 +14,34 @@
         
             <div class="col-md-7 col-lg-8">
             <h4 class="mb-3">Billing address</h4>
-            <form class="needs-validation" novalidate="False" method="POST" action="submit">
+            <form class="needs-validation" novalidate="False" method="POST" >
+                {{ price_form.csrf_token }}
                 <div class="row g-3">
                 
     
                 <div class="col-12">
-                    <label for="price" class="form-label">price 2 <span class="text-muted">(Optional)</span></label>
-                    <input type="text" class="form-control" id="price" placeholder="Apartment or suite">
+                    {{ price_form.price.label(**{'class': 'form-label'}) }}
+                    {{ price_form.price(**{'class': 'form-control', 'placeholder': 'price'}) }}
+
                     <div class="invalid-feedback">
                     Expiration date required
                     </div>
                 </div>
     
                 <div class="col-md-5">
-                    <label for="currency" class="form-label">currency</label>
-                    <select class="form-select" id="currency" required="">
-                    <option value="">Choose...</option>
-                    <option>eur</option>
-                    <option>usd</option>
-                    <option>rub</option>
-                    </select>
+                    {{ price_form.price.label(**{'class': 'form-label'}) }}
+                    {{ price_form.currency(**{'class': 'form-select'}) }}
+                    
+
                     <div class="invalid-feedback">
                         Please select a valid country.
                     </div>
                 </div>
     
                 <div class="col-12">
-                    <label for="describe" class="form-label">describe 2 <span class="text-muted">(Optional)</span></label>
-                    <input type="text" class="form-control" id="describe" placeholder="Apartment or suite">
+                    {{ price_form.description.label(**{'class': 'form-label'}) }}
+                    {{ price_form.description(**{'class': 'form-control', 'placeholder': 'description'}) }}
+
                     <div class="invalid-feedback">
                         Expiration date required
                     </div>

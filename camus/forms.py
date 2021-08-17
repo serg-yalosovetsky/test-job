@@ -24,5 +24,5 @@ class OrderForm(FlaskForm):
     price = StringField('price', validators=[DataRequired()])
     currency = SelectField('currency', #coerce=lambda x: x == 'Yes',
                          choices=[('RUB'), ('EUR'), ('USD')])
-    desk = StringField('deskription', validators=[DataRequired()])
+    description = StringField('description', validators=[DataRequired()])
     

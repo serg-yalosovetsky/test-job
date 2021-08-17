@@ -12,9 +12,9 @@ class Orders(db.Model):
     __tablename__ = 'orders'
     id = db.Column(db.Integer, primary_key=True)
     price = db.Column(db.Integer)
-    time = db.Column(db.String(50))
-    desc = db.Column(db.String(250))
-    curr = db.Column(db.String(3))
+    created = db.Column(db.DateTime, default=datetime.utcnow)
+    description = db.Column(db.String(250))
+    currency = db.Column(db.String(3))
     
     
 class Room(db.Model):

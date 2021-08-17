@@ -9,7 +9,7 @@ RUN make package
 # prod
 FROM python:3.9-alpine as prod
 ENV DATA_DIR="/var/lib/camus"
-ENV DATABASE_URL="sqlite:///$DATA_DIR/camus.db"
+ENV DATABASE_URL="sqlite:///$DATA_DIR/test-job.db"
 ENV PORT=5000
 RUN mkdir -p $DATA_DIR
 RUN apk update && apk add postgresql-libs

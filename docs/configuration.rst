@@ -94,7 +94,7 @@ View the current settings:
 
    $ sudo snap get camus
    Key           Value
-   database-url  sqlite:////var/snap/camus/96/sqlite/camus.db
+   database-url  sqlite:////var/snap/camus/96/sqlite/test-job.db
    secret-key    ySWCYfc79GurPmTxmwYQ16bIPaRbLNoPt0bIDkiztpb85NrVO6N8tZhTj4C010sn
    stun          {...}
    turn          {...}
@@ -118,7 +118,7 @@ default database option):
    Mail: https://groups.google.com/forum/#!forum/litecli-users
    GitHub: https://github.com/dbcli/litecli
 
-   /var/snap/camus/96/sqlite/camus.db> .tables
+   /var/snap/camus/96/sqlite/test-job.db> .tables
    +---------+
    | name    |
    +---------+
@@ -127,7 +127,7 @@ default database option):
    +---------+
    Time: 0.007s
 
-   /var/snap/camus/96/sqlite/camus.db> select * from rooms
+   /var/snap/camus/96/sqlite/test-job.db> select * from rooms
    +----+-----------+-----------+---------------+-------------+-----------+----------------------------+----------------------------+
    | id | name      | slug      | password_hash | guest_limit | is_public | created                    | active                     |
    +----+-----------+-----------+---------------+-------------+-----------+----------------------------+----------------------------+

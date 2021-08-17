@@ -53,3 +53,7 @@ def create_app(config_class=Config):
         LoopTimer(300, reap_rooms)
 
     return app
+
+if __name__ == '__main__':
+    app = create_app()
+    app.run()

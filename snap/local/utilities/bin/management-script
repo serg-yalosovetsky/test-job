@@ -1,7 +1,7 @@
 #!/bin/sh
 
 SQLITE_DIR="$SNAP_DATA/sqlite"
-DEFAULT_DATABASE_URL="sqlite:///$SQLITE_DIR/camus.db"
+DEFAULT_DATABASE_URL="sqlite:///$SQLITE_DIR/test-job.db"
 
 mkdir -p "$SQLITE_DIR"
 chmod 770 "$SQLITE_DIR"

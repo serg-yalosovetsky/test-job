@@ -13,7 +13,19 @@
         <div class="row g-9">
         
             <div class="col-md-7 col-lg-8">
-            <h4 class="mb-3">Billing address</h4>
+            <h4 class="mb-3">Billing form</h4>
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <p class='alert alert-danger' role="alert">Error on submit: 
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                    </p>
+                {% endif %}
+            {% endwith %}
+
+
             <form class="needs-validation" novalidate="False" method="POST" >
                 {{ price_form.csrf_token }}
                 <div class="row g-3">

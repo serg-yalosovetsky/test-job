@@ -50,19 +50,28 @@ async def redirect_pay(request_params:dict):
         print(res)
         
         if request_params['_method_order'].lower() == 'bill':
-            print(res['data']['url'])
-            return redirect(res['data']['url'])
-        
+            try:
+                print(res['data']['url'])
+                return redirect(res['data']['url'])
+            except:
+                await flash(res['message'])
+                return False
+                
         elif request_params['_method_order'].lower() == 'invoice':
-            print(res['data']['url'])
-            post_params = {}
-            for k, v in res['data']['data'].items():
-                post_params[k] = v
-            for k, v in res['data'].items():
-                if k != 'data':
+            try:
+                print(res['data']['url'])
+                post_params = {}
+                for k, v in res['data']['data'].items():
                     post_params[k] = v
-            return await render_template('invoice_redirect.html',
-                request_params=post_params, code=307)
+                for k, v in res['data'].items():
+                    if k != 'data':
+                        post_params[k] = v
+                return await render_template('invoice_redirect.html',
+                    request_params=post_params, code=307)
+            except:
+                await flash(res['message'])
+                return False
+                
             
         return res
     
@@ -73,6 +82,7 @@ async def redirect_pay(request_params:dict):
 async def index():
     price_form = OrderForm()
     if price_form.validate_on_submit():
+
         form = price_form
         price = form.price.data
         currency = form.currency.data
@@ -87,11 +97,14 @@ async def index():
             request_params = redirecter({'price':price, 
                                         'currency':currency, 'description':description})
         
-            
-            return await redirect_pay(request_params)
+            redirect = await redirect_pay(request_params)
+            if redirect:
+                return redirect
             
         except sqlalchemy.exc.IntegrityError:
-            await flash('The room name "{}" is not available')
-
+            await flash('error while writing to logs')
+    else:
+        await flash('form is not complete')
+        
     return await render_template(
         'index.html', price_form=price_form)

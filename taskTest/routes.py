@@ -76,10 +76,11 @@ async def redirect_pay(request_params:dict):
         return res
     
                 
-                
+count = 0            
 
 @bp.route('/', methods=['GET', 'POST'])
 async def index():
+    global count
     price_form = OrderForm()
     if price_form.validate_on_submit():
 
@@ -104,7 +105,9 @@ async def index():
         except sqlalchemy.exc.IntegrityError:
             await flash('error while writing to logs')
     else:
-        await flash('form is not complete')
-        
+        if count:
+            await flash('form is not complete')
+        count += 1
+            
     return await render_template(
         'index.html', price_form=price_form)

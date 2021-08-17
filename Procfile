@@ -1,1 +1,1 @@
-web: pwd ; python taskTest/run.app 
+web: pwd; ls ; python taskTest/run.app 

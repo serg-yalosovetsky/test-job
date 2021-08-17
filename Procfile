@@ -1,1 +1,1 @@
-web: ip addr;  python taskTest/run.py
+web: python taskTest/run.py

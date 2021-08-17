@@ -8,12 +8,12 @@ build/
 docs/_build/
 
 # node
-camus/static/node_modules
+task-test/static/node_modules
 
 # cypress
-camus/static/cypress/plugins/
-camus/static/cypress/support/
-camus/static/cypress/videos/
+task-test/static/cypress/plugins/
+task-test/static/cypress/support/
+task-test/static/cypress/videos/
 
 # scratch/development
 .scratch

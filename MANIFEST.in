@@ -1,7 +1,7 @@
 include LICENSE
 include README.rst
-include camus/static/css/*
-include camus/static/dist/*
-include camus/static/fonts/*
-include camus/static/js/*
-include camus/templates/*
+include taskTest/static/css/*
+include taskTest/static/dist/*
+include taskTest/static/fonts/*
+include taskTest/static/js/*
+include taskTest/templates/*

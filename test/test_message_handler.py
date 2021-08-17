@@ -3,9 +3,9 @@ import json
 
 import pytest
 
-from camus import db
-from camus.message_handler import Message
-from camus.models import Client, Room
+from taskTest import db
+from taskTest.message_handler import Message
+from taskTest.models import Client, Room
 
 
 @pytest.mark.asyncio

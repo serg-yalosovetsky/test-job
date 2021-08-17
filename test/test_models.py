@@ -1,6 +1,6 @@
 import pytest
 
-from camus.models import Room
+from taskTest.models import Room
 
 
 @pytest.mark.asyncio

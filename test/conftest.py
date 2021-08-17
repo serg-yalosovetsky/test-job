@@ -1,8 +1,8 @@
 import pytest
 
-from camus import create_app, db
-from camus.message_handler import MessageHandler
-from camus.config import TestConfig
+from taskTest import create_app, db
+from taskTest.message_handler import MessageHandler
+from taskTest.config import TestConfig
 
 
 @pytest.fixture

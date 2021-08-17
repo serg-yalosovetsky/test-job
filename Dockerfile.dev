@@ -11,7 +11,7 @@ RUN pip install -r /app/requirements.txt
 
 # test (server)
 FROM base AS test-server
-ENV QUART_APP camus:create_app()
+ENV QUART_APP task-test:create_app()
 ENV QUART_ENV development
 RUN pip install -r /app/requirements/test.txt
 ADD . /app
@@ -19,7 +19,7 @@ ADD . /app
 
 # dev
 FROM base AS dev
-ENV QUART_APP camus:create_app()
+ENV QUART_APP task-test:create_app()
 ENV QUART_ENV development
 RUN apt-get update && apt-get install -y \
     vim

@@ -5,8 +5,8 @@ import pytest
 from quart import session
 from quart.testing.connections import WebsocketResponse
 
-from camus import db, message_handler
-from camus.models import Client, Room
+from taskTest import db, message_handler
+from taskTest.models import Client, Room
 
 
 @pytest.mark.asyncio

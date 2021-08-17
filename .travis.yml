@@ -4,7 +4,7 @@ node_js:
 
 install:
   - npm version
-  - cd $TRAVIS_BUILD_DIR/camus/static && npm install && cd $TRAVIS_BUILD_DIR
+  - cd $TRAVIS_BUILD_DIR/task-test/static && npm install && cd $TRAVIS_BUILD_DIR
 
 services:
   - docker

@@ -1,8 +1,8 @@
 {
-    "name": "Camus",
+    "name": "task-test",
     "description": "Peer-to-peer group video chat using WebRTC",
-    "repository": "https://github.com/camuschat/camus",
-    "website": "https://camus.chat/",
+    "repository": "https://github.com/serg-yalosovetsky/test-job",
+    "website": "https://task-test/",
     "keywords": ["video chat", "WebRTC", "p2p"],
     "logo": "https://raw.githubusercontent.com/camuschat/camus/master/images/logo.png",
     "success_url": "/",

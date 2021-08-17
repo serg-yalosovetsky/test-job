@@ -1,6 +1,6 @@
 # -- Project information -----------------------------------------------------
 
-project = 'Camus'
+project = 'taskTest'
 copyright = '2021, Morgan Robertson'
 author = 'Morgan Robertson'
 
@@ -21,7 +21,7 @@ html_static_path = ['_static']
 html_theme = 'alabaster'
 html_theme_options = {
     'github_user': 'mrgnr',
-    'github_repo': 'camus',
+    'github_repo': 'taskTest',
     'github_banner': True,
     'github_button': False,
     'show_relbar_bottom': True,

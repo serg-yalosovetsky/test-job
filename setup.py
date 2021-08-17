@@ -1,12 +1,12 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='camus-chat',
+    name='taskTest-chat',
     version='0.3.2',
     description='Peer-to-peer video chat using WebRTC',
     long_description=open('README.rst').read(),
     long_description_content_type="text/x-rst; charset=UTF-8",
-    url='https://camus.chat/',
+    url='https://taskTest.chat/',
     download_url='https://pypi.org/project/camus-chat/',
     project_urls={
         'Code': 'https://github.com/camuschat/camus',
@@ -39,5 +39,5 @@ setup(
         'Topic :: Multimedia :: Video',
     ],
     python_requires='>=3.7',
-    scripts=['bin/camus'],
+    scripts=['bin/taskTest'],
 )

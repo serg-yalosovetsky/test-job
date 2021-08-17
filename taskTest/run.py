@@ -4,4 +4,9 @@ from hypercorn.asyncio import serve
 
 from app import create_app
 app_ = create_app()
-asyncio.run(serve(app_, Config()))
+
+config = Config()
+# config.from_mapping(bind='http://0.0.0.0:5000')
+config.bind = ["0.0.0.0:5000"] 
+# config.from_toml('config.toml')
+asyncio.run(serve(app_, config))
